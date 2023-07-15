@@ -1,8 +1,9 @@
 terraform {
   backend "s3" {
-    bucket         = "terraform-dev-state-bucket"
+    profile        = "default"
+    bucket         = "terraform-account-a-dev-state"
     key            = "terraform.dev.tfstate"
-    region         = "ap-south-1"
+    region         = "us-east-1"
     dynamodb_table = "terraform-dev-state-lock"
   }
 }
