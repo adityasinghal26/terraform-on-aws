@@ -44,8 +44,10 @@ As part of this structure, it's recommended that one should create another AWS a
 
 Once the account is created under the organization, the role "OrganizationAccountAccessRole" is automatically created in "DevOps" AWS account. This can be used to switch from Organization account to member account. However, it's recommended that one should create another user under "DevOps" account, such as infra-user, automation-user, terraform-user etc in IAM. These users will be used to access various AWS accounts to interact with AWS resources. It's importatnt that we also create required roles in the target AWS accounts which allows these users to assume role (such as by using aws-cli).
 
-aws_credentials=$(aws sts assume-role --role-arn arn:aws:iam::<target-account-A-AWS-id>:role/OrganizationAccountAccessRole --role-session-name "OrgRoleSessionDevOps1" --output json --profile aws-user-a)
+`aws_credentials=$(aws sts assume-role --role-arn arn:aws:iam::<target-account-A-AWS-id>:role/OrganizationAccountAccessRole --role-session-name "OrgRoleSessionDevOps1" --output json --profile aws-user-a)`
 
+```
 export AWS_ACCESS_KEY_ID=$(echo $aws_credentials|jq '.Credentials.AccessKeyId'|tr -d '"')
 export AWS_SECRET_ACCESS_KEY=$(echo $aws_credentials|jq '.Credentials.SecretAccessKey'|tr -d '"')
 export AWS_SESSION_TOKEN=$(echo $aws_credentials|jq '.Credentials.SessionToken'|tr -d '"')
+```
