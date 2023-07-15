@@ -17,11 +17,11 @@ https://aws.amazon.com/getting-started/guides/setup-environment/module-two/
 # Setup a user 'a' using IAM Identity Center
 
 This user needs to be added to a group 'Admins'. After addition, the user will receive an email to login to the application and register MFA device of their choice as in below image.
-![SSO Login screen, before registering MFA](mfa-register.png)
+![SSO Login screen, before registering MFA](images/mfa-register.png)
 
 Once the user has registered a device, an AWS account will be visible to which the user has authorized access (refer below image)
 
-![AWS account to which user 'a' is authorized access](mfa-after.png)
+![AWS account to which user 'a' is authorized access](images/mfa-after.png)
 
 # Setup multiple users for controlled access
 
